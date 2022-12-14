@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:market/feature/presentation/home/controller/index.dart';
+import 'package:market/feature/presentation/home/widgets/error_widget.dart';
+import 'package:market/feature/presentation/home/widgets/load_widget.dart';
+import 'package:market/feature/presentation/home/widgets/market_widget.dart';
 import 'package:market/feature/presentation/home/widgets/markets_widget.dart';
+import 'package:market/feature/presentation/home/widgets/product_widget.dart';
 
 class MyHomePage extends StatelessWidget {
   const MyHomePage({Key? key}) : super(key: key);
@@ -11,13 +15,13 @@ class MyHomePage extends StatelessWidget {
         builder: (context, state) {
           return state.when(
               initial: () => const MarketsWidget(),
-              loaded: () => const MarketsWidget(),
+              loaded: () => const LoadWidget(),
               success: () => const MarketsWidget(),
               markets: () => const MarketsWidget(),
-              market: () => const MarketsWidget(),
-              product: () => const MarketsWidget(),
+              market: () => const MarketWidget(),
+              product: () => const ProductWidget(),
               empty: () => const MarketsWidget(),
-              error: () => const MarketsWidget(),
+              error: () => const MyErrorWidget(),
           );
         });
   }
