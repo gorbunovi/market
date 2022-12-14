@@ -9,10 +9,15 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
+      title: 'Market',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
+      onUnknownRoute: (RouteSettings) {
+        return MaterialPageRoute(builder: (BuildContext context) {
+          return const MyHomePage();
+        });
+      },
       home: const MyHomePage(),
     );
   }
