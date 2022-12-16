@@ -8,10 +8,10 @@ class CharacteristicsHive {
   final int id;
 
   @HiveField(1)
-  final String name;
+  final String weight;
 
   CharacteristicsHive({
     required this.id,
-    required this.name,
+    required this.weight,
   });
 }

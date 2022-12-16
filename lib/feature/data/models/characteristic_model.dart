@@ -4,25 +4,25 @@ import 'package:market/feature/domain/entities/characteristic.dart';
 class CharacteristicModel extends CharacteristicEntity {
   CharacteristicModel({
     required this.id,
-    required this.name,
+    required this.weight,
   }) : super(
           id: id,
-          name: name,
+          weight: weight,
         );
 
   final int id;
-  final String name;
+  final String weight;
 
-  CharacteristicModel.fromHive(CharacteristicsHive characteristicsHiveModel, this.id, this.name)
+  CharacteristicModel.fromHive(CharacteristicsHive characteristicsHiveModel, this.id, this.weight)
       : super(
           id: characteristicsHiveModel.id,
-          name: characteristicsHiveModel.name,
+          weight: characteristicsHiveModel.weight,
         );
 
   CharacteristicsHive toHive() {
     return CharacteristicsHive(
       id: id,
-      name: name,
+      weight: weight,
     );
   }
 }

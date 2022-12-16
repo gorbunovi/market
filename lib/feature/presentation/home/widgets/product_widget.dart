@@ -29,7 +29,7 @@ class ProductWidget extends StatelessWidget {
           itemCount: market.products[productIndex].characteristics.length,
           itemBuilder: (context, index){
             return ListTile(
-              title: Text(market.products[productIndex].characteristics[index].name),
+              title: Text(market.products[productIndex].characteristics[index].weight),
             );
           }),
     );

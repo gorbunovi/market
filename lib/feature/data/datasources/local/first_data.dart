@@ -46,21 +46,21 @@ class FirstData{
           id: 0,
           name: 'Paroduct',
           characteristics: [
-            CharacteristicModel(id: 0, name: 'Characteristic',),
+            CharacteristicModel(id: 0, weight: 'Characteristic',),
           ],
         ),
         ProductModel(
           id: 0,
           name: 'Paroduct1',
           characteristics: [
-            CharacteristicModel(id: 0, name: 'Characteristic',),
+            CharacteristicModel(id: 0, weight: 'Characteristic',),
           ],
         ),
         ProductModel(
           id: 0,
           name: 'Paroduct2',
           characteristics: [
-            CharacteristicModel(id: 0, name: 'Characteristic',),
+            CharacteristicModel(id: 0, weight: 'Characteristic',),
           ],
         ),
       ],
@@ -73,21 +73,21 @@ class FirstData{
           id: 0,
           name: 'Paroduct',
           characteristics: [
-            CharacteristicModel(id: 0, name: 'Characteristic',),
+            CharacteristicModel(id: 0, weight: 'Characteristic',),
           ],
         ),
         ProductModel(
           id: 0,
           name: 'Paroduct1',
           characteristics: [
-            CharacteristicModel(id: 0, name: 'Characteristic',),
+            CharacteristicModel(id: 0, weight: 'Characteristic',),
           ],
         ),
         ProductModel(
           id: 0,
           name: 'Paroduct2',
           characteristics: [
-            CharacteristicModel(id: 0, name: 'Characteristic',),
+            CharacteristicModel(id: 0, weight: 'Characteristic',),
           ],
         ),
       ],
@@ -100,21 +100,21 @@ class FirstData{
           id: 0,
           name: 'Paroduct',
           characteristics: [
-            CharacteristicModel(id: 0, name: 'Characteristic',),
+            CharacteristicModel(id: 0, weight: 'Characteristic',),
           ],
         ),
         ProductModel(
           id: 0,
           name: 'Paroduct1',
           characteristics: [
-            CharacteristicModel(id: 0, name: 'Characteristic',),
+            CharacteristicModel(id: 0, weight: 'Characteristic',),
           ],
         ),
         ProductModel(
           id: 0,
           name: 'Paroduct2',
           characteristics: [
-            CharacteristicModel(id: 0, name: 'Characteristic',),
+            CharacteristicModel(id: 0, weight: 'Characteristic',),
           ],
         ),
       ],

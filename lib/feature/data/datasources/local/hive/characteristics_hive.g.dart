@@ -18,7 +18,7 @@ class CharacteristicsHiveAdapter extends TypeAdapter<CharacteristicsHive> {
     };
     return CharacteristicsHive(
       id: fields[0] as int,
-      name: fields[1] as String,
+      weight: fields[1] as String,
     );
   }
 
@@ -29,7 +29,7 @@ class CharacteristicsHiveAdapter extends TypeAdapter<CharacteristicsHive> {
       ..writeByte(0)
       ..write(obj.id)
       ..writeByte(1)
-      ..write(obj.name);
+      ..write(obj.weight);
   }
 
   @override
