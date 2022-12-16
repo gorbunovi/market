@@ -19,45 +19,41 @@ mixin _$HomeState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function() loaded,
-    required TResult Function() success,
-    required TResult Function() markets,
-    required TResult Function() market,
-    required TResult Function() product,
+    required TResult Function() loading,
+    required TResult Function(List<MarketEntity> markets) markets,
+    required TResult Function(MarketModel market) market,
+    required TResult Function(MarketModel market, int index) product,
     required TResult Function() empty,
-    required TResult Function() error,
+    required TResult Function(Failure failure) error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function()? loaded,
-    TResult? Function()? success,
-    TResult? Function()? markets,
-    TResult? Function()? market,
-    TResult? Function()? product,
+    TResult? Function()? loading,
+    TResult? Function(List<MarketEntity> markets)? markets,
+    TResult? Function(MarketModel market)? market,
+    TResult? Function(MarketModel market, int index)? product,
     TResult? Function()? empty,
-    TResult? Function()? error,
+    TResult? Function(Failure failure)? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function()? loaded,
-    TResult Function()? success,
-    TResult Function()? markets,
-    TResult Function()? market,
-    TResult Function()? product,
+    TResult Function()? loading,
+    TResult Function(List<MarketEntity> markets)? markets,
+    TResult Function(MarketModel market)? market,
+    TResult Function(MarketModel market, int index)? product,
     TResult Function()? empty,
-    TResult Function()? error,
+    TResult Function(Failure failure)? error,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(Initial value) initial,
-    required TResult Function(Loaded value) loaded,
-    required TResult Function(Success value) success,
+    required TResult Function(Loading value) loading,
     required TResult Function(Markets value) markets,
     required TResult Function(Market value) market,
     required TResult Function(Product value) product,
@@ -68,8 +64,7 @@ mixin _$HomeState {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(Initial value)? initial,
-    TResult? Function(Loaded value)? loaded,
-    TResult? Function(Success value)? success,
+    TResult? Function(Loading value)? loading,
     TResult? Function(Markets value)? markets,
     TResult? Function(Market value)? market,
     TResult? Function(Product value)? product,
@@ -80,8 +75,7 @@ mixin _$HomeState {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Initial value)? initial,
-    TResult Function(Loaded value)? loaded,
-    TResult Function(Success value)? success,
+    TResult Function(Loading value)? loading,
     TResult Function(Markets value)? markets,
     TResult Function(Market value)? market,
     TResult Function(Product value)? product,
@@ -146,13 +140,12 @@ class _$Initial implements Initial {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function() loaded,
-    required TResult Function() success,
-    required TResult Function() markets,
-    required TResult Function() market,
-    required TResult Function() product,
+    required TResult Function() loading,
+    required TResult Function(List<MarketEntity> markets) markets,
+    required TResult Function(MarketModel market) market,
+    required TResult Function(MarketModel market, int index) product,
     required TResult Function() empty,
-    required TResult Function() error,
+    required TResult Function(Failure failure) error,
   }) {
     return initial();
   }
@@ -161,13 +154,12 @@ class _$Initial implements Initial {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function()? loaded,
-    TResult? Function()? success,
-    TResult? Function()? markets,
-    TResult? Function()? market,
-    TResult? Function()? product,
+    TResult? Function()? loading,
+    TResult? Function(List<MarketEntity> markets)? markets,
+    TResult? Function(MarketModel market)? market,
+    TResult? Function(MarketModel market, int index)? product,
     TResult? Function()? empty,
-    TResult? Function()? error,
+    TResult? Function(Failure failure)? error,
   }) {
     return initial?.call();
   }
@@ -176,13 +168,12 @@ class _$Initial implements Initial {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function()? loaded,
-    TResult Function()? success,
-    TResult Function()? markets,
-    TResult Function()? market,
-    TResult Function()? product,
+    TResult Function()? loading,
+    TResult Function(List<MarketEntity> markets)? markets,
+    TResult Function(MarketModel market)? market,
+    TResult Function(MarketModel market, int index)? product,
     TResult Function()? empty,
-    TResult Function()? error,
+    TResult Function(Failure failure)? error,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -195,8 +186,7 @@ class _$Initial implements Initial {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(Initial value) initial,
-    required TResult Function(Loaded value) loaded,
-    required TResult Function(Success value) success,
+    required TResult Function(Loading value) loading,
     required TResult Function(Markets value) markets,
     required TResult Function(Market value) market,
     required TResult Function(Product value) product,
@@ -210,8 +200,7 @@ class _$Initial implements Initial {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(Initial value)? initial,
-    TResult? Function(Loaded value)? loaded,
-    TResult? Function(Success value)? success,
+    TResult? Function(Loading value)? loading,
     TResult? Function(Markets value)? markets,
     TResult? Function(Market value)? market,
     TResult? Function(Product value)? product,
@@ -225,8 +214,7 @@ class _$Initial implements Initial {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Initial value)? initial,
-    TResult Function(Loaded value)? loaded,
-    TResult Function(Success value)? success,
+    TResult Function(Loading value)? loading,
     TResult Function(Markets value)? markets,
     TResult Function(Market value)? market,
     TResult Function(Product value)? product,
@@ -246,33 +234,33 @@ abstract class Initial implements HomeState {
 }
 
 /// @nodoc
-abstract class _$$LoadedCopyWith<$Res> {
-  factory _$$LoadedCopyWith(_$Loaded value, $Res Function(_$Loaded) then) =
-      __$$LoadedCopyWithImpl<$Res>;
+abstract class _$$LoadingCopyWith<$Res> {
+  factory _$$LoadingCopyWith(_$Loading value, $Res Function(_$Loading) then) =
+      __$$LoadingCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$LoadedCopyWithImpl<$Res>
-    extends _$HomeStateCopyWithImpl<$Res, _$Loaded>
-    implements _$$LoadedCopyWith<$Res> {
-  __$$LoadedCopyWithImpl(_$Loaded _value, $Res Function(_$Loaded) _then)
+class __$$LoadingCopyWithImpl<$Res>
+    extends _$HomeStateCopyWithImpl<$Res, _$Loading>
+    implements _$$LoadingCopyWith<$Res> {
+  __$$LoadingCopyWithImpl(_$Loading _value, $Res Function(_$Loading) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$Loaded implements Loaded {
-  const _$Loaded();
+class _$Loading implements Loading {
+  const _$Loading();
 
   @override
   String toString() {
-    return 'HomeState.loaded()';
+    return 'HomeState.loading()';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$Loaded);
+        (other.runtimeType == runtimeType && other is _$Loading);
   }
 
   @override
@@ -282,47 +270,44 @@ class _$Loaded implements Loaded {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function() loaded,
-    required TResult Function() success,
-    required TResult Function() markets,
-    required TResult Function() market,
-    required TResult Function() product,
+    required TResult Function() loading,
+    required TResult Function(List<MarketEntity> markets) markets,
+    required TResult Function(MarketModel market) market,
+    required TResult Function(MarketModel market, int index) product,
     required TResult Function() empty,
-    required TResult Function() error,
+    required TResult Function(Failure failure) error,
   }) {
-    return loaded();
+    return loading();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function()? loaded,
-    TResult? Function()? success,
-    TResult? Function()? markets,
-    TResult? Function()? market,
-    TResult? Function()? product,
+    TResult? Function()? loading,
+    TResult? Function(List<MarketEntity> markets)? markets,
+    TResult? Function(MarketModel market)? market,
+    TResult? Function(MarketModel market, int index)? product,
     TResult? Function()? empty,
-    TResult? Function()? error,
+    TResult? Function(Failure failure)? error,
   }) {
-    return loaded?.call();
+    return loading?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function()? loaded,
-    TResult Function()? success,
-    TResult Function()? markets,
-    TResult Function()? market,
-    TResult Function()? product,
+    TResult Function()? loading,
+    TResult Function(List<MarketEntity> markets)? markets,
+    TResult Function(MarketModel market)? market,
+    TResult Function(MarketModel market, int index)? product,
     TResult Function()? empty,
-    TResult Function()? error,
+    TResult Function(Failure failure)? error,
     required TResult orElse(),
   }) {
-    if (loaded != null) {
-      return loaded();
+    if (loading != null) {
+      return loading();
     }
     return orElse();
   }
@@ -331,38 +316,35 @@ class _$Loaded implements Loaded {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(Initial value) initial,
-    required TResult Function(Loaded value) loaded,
-    required TResult Function(Success value) success,
+    required TResult Function(Loading value) loading,
     required TResult Function(Markets value) markets,
     required TResult Function(Market value) market,
     required TResult Function(Product value) product,
     required TResult Function(Empty value) empty,
     required TResult Function(Error value) error,
   }) {
-    return loaded(this);
+    return loading(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(Initial value)? initial,
-    TResult? Function(Loaded value)? loaded,
-    TResult? Function(Success value)? success,
+    TResult? Function(Loading value)? loading,
     TResult? Function(Markets value)? markets,
     TResult? Function(Market value)? market,
     TResult? Function(Product value)? product,
     TResult? Function(Empty value)? empty,
     TResult? Function(Error value)? error,
   }) {
-    return loaded?.call(this);
+    return loading?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Initial value)? initial,
-    TResult Function(Loaded value)? loaded,
-    TResult Function(Success value)? success,
+    TResult Function(Loading value)? loading,
     TResult Function(Markets value)? markets,
     TResult Function(Market value)? market,
     TResult Function(Product value)? product,
@@ -370,157 +352,23 @@ class _$Loaded implements Loaded {
     TResult Function(Error value)? error,
     required TResult orElse(),
   }) {
-    if (loaded != null) {
-      return loaded(this);
+    if (loading != null) {
+      return loading(this);
     }
     return orElse();
   }
 }
 
-abstract class Loaded implements HomeState {
-  const factory Loaded() = _$Loaded;
-}
-
-/// @nodoc
-abstract class _$$SuccessCopyWith<$Res> {
-  factory _$$SuccessCopyWith(_$Success value, $Res Function(_$Success) then) =
-      __$$SuccessCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$SuccessCopyWithImpl<$Res>
-    extends _$HomeStateCopyWithImpl<$Res, _$Success>
-    implements _$$SuccessCopyWith<$Res> {
-  __$$SuccessCopyWithImpl(_$Success _value, $Res Function(_$Success) _then)
-      : super(_value, _then);
-}
-
-/// @nodoc
-
-class _$Success implements Success {
-  const _$Success();
-
-  @override
-  String toString() {
-    return 'HomeState.success()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$Success);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function() loaded,
-    required TResult Function() success,
-    required TResult Function() markets,
-    required TResult Function() market,
-    required TResult Function() product,
-    required TResult Function() empty,
-    required TResult Function() error,
-  }) {
-    return success();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
-    TResult? Function()? loaded,
-    TResult? Function()? success,
-    TResult? Function()? markets,
-    TResult? Function()? market,
-    TResult? Function()? product,
-    TResult? Function()? empty,
-    TResult? Function()? error,
-  }) {
-    return success?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? loaded,
-    TResult Function()? success,
-    TResult Function()? markets,
-    TResult Function()? market,
-    TResult Function()? product,
-    TResult Function()? empty,
-    TResult Function()? error,
-    required TResult orElse(),
-  }) {
-    if (success != null) {
-      return success();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(Initial value) initial,
-    required TResult Function(Loaded value) loaded,
-    required TResult Function(Success value) success,
-    required TResult Function(Markets value) markets,
-    required TResult Function(Market value) market,
-    required TResult Function(Product value) product,
-    required TResult Function(Empty value) empty,
-    required TResult Function(Error value) error,
-  }) {
-    return success(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(Initial value)? initial,
-    TResult? Function(Loaded value)? loaded,
-    TResult? Function(Success value)? success,
-    TResult? Function(Markets value)? markets,
-    TResult? Function(Market value)? market,
-    TResult? Function(Product value)? product,
-    TResult? Function(Empty value)? empty,
-    TResult? Function(Error value)? error,
-  }) {
-    return success?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(Initial value)? initial,
-    TResult Function(Loaded value)? loaded,
-    TResult Function(Success value)? success,
-    TResult Function(Markets value)? markets,
-    TResult Function(Market value)? market,
-    TResult Function(Product value)? product,
-    TResult Function(Empty value)? empty,
-    TResult Function(Error value)? error,
-    required TResult orElse(),
-  }) {
-    if (success != null) {
-      return success(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class Success implements HomeState {
-  const factory Success() = _$Success;
+abstract class Loading implements HomeState {
+  const factory Loading() = _$Loading;
 }
 
 /// @nodoc
 abstract class _$$MarketsCopyWith<$Res> {
   factory _$$MarketsCopyWith(_$Markets value, $Res Function(_$Markets) then) =
       __$$MarketsCopyWithImpl<$Res>;
+  @useResult
+  $Res call({List<MarketEntity> markets});
 }
 
 /// @nodoc
@@ -529,72 +377,99 @@ class __$$MarketsCopyWithImpl<$Res>
     implements _$$MarketsCopyWith<$Res> {
   __$$MarketsCopyWithImpl(_$Markets _value, $Res Function(_$Markets) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? markets = null,
+  }) {
+    return _then(_$Markets(
+      null == markets
+          ? _value._markets
+          : markets // ignore: cast_nullable_to_non_nullable
+              as List<MarketEntity>,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$Markets implements Markets {
-  const _$Markets();
+  const _$Markets(final List<MarketEntity> markets) : _markets = markets;
+
+  final List<MarketEntity> _markets;
+  @override
+  List<MarketEntity> get markets {
+    if (_markets is EqualUnmodifiableListView) return _markets;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_markets);
+  }
 
   @override
   String toString() {
-    return 'HomeState.markets()';
+    return 'HomeState.markets(markets: $markets)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$Markets);
+        (other.runtimeType == runtimeType &&
+            other is _$Markets &&
+            const DeepCollectionEquality().equals(other._markets, _markets));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(_markets));
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$MarketsCopyWith<_$Markets> get copyWith =>
+      __$$MarketsCopyWithImpl<_$Markets>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function() loaded,
-    required TResult Function() success,
-    required TResult Function() markets,
-    required TResult Function() market,
-    required TResult Function() product,
+    required TResult Function() loading,
+    required TResult Function(List<MarketEntity> markets) markets,
+    required TResult Function(MarketModel market) market,
+    required TResult Function(MarketModel market, int index) product,
     required TResult Function() empty,
-    required TResult Function() error,
+    required TResult Function(Failure failure) error,
   }) {
-    return markets();
+    return markets(this.markets);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function()? loaded,
-    TResult? Function()? success,
-    TResult? Function()? markets,
-    TResult? Function()? market,
-    TResult? Function()? product,
+    TResult? Function()? loading,
+    TResult? Function(List<MarketEntity> markets)? markets,
+    TResult? Function(MarketModel market)? market,
+    TResult? Function(MarketModel market, int index)? product,
     TResult? Function()? empty,
-    TResult? Function()? error,
+    TResult? Function(Failure failure)? error,
   }) {
-    return markets?.call();
+    return markets?.call(this.markets);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function()? loaded,
-    TResult Function()? success,
-    TResult Function()? markets,
-    TResult Function()? market,
-    TResult Function()? product,
+    TResult Function()? loading,
+    TResult Function(List<MarketEntity> markets)? markets,
+    TResult Function(MarketModel market)? market,
+    TResult Function(MarketModel market, int index)? product,
     TResult Function()? empty,
-    TResult Function()? error,
+    TResult Function(Failure failure)? error,
     required TResult orElse(),
   }) {
     if (markets != null) {
-      return markets();
+      return markets(this.markets);
     }
     return orElse();
   }
@@ -603,8 +478,7 @@ class _$Markets implements Markets {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(Initial value) initial,
-    required TResult Function(Loaded value) loaded,
-    required TResult Function(Success value) success,
+    required TResult Function(Loading value) loading,
     required TResult Function(Markets value) markets,
     required TResult Function(Market value) market,
     required TResult Function(Product value) product,
@@ -618,8 +492,7 @@ class _$Markets implements Markets {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(Initial value)? initial,
-    TResult? Function(Loaded value)? loaded,
-    TResult? Function(Success value)? success,
+    TResult? Function(Loading value)? loading,
     TResult? Function(Markets value)? markets,
     TResult? Function(Market value)? market,
     TResult? Function(Product value)? product,
@@ -633,8 +506,7 @@ class _$Markets implements Markets {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Initial value)? initial,
-    TResult Function(Loaded value)? loaded,
-    TResult Function(Success value)? success,
+    TResult Function(Loading value)? loading,
     TResult Function(Markets value)? markets,
     TResult Function(Market value)? market,
     TResult Function(Product value)? product,
@@ -650,13 +522,20 @@ class _$Markets implements Markets {
 }
 
 abstract class Markets implements HomeState {
-  const factory Markets() = _$Markets;
+  const factory Markets(final List<MarketEntity> markets) = _$Markets;
+
+  List<MarketEntity> get markets;
+  @JsonKey(ignore: true)
+  _$$MarketsCopyWith<_$Markets> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class _$$MarketCopyWith<$Res> {
   factory _$$MarketCopyWith(_$Market value, $Res Function(_$Market) then) =
       __$$MarketCopyWithImpl<$Res>;
+  @useResult
+  $Res call({MarketModel market});
 }
 
 /// @nodoc
@@ -665,72 +544,93 @@ class __$$MarketCopyWithImpl<$Res>
     implements _$$MarketCopyWith<$Res> {
   __$$MarketCopyWithImpl(_$Market _value, $Res Function(_$Market) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? market = null,
+  }) {
+    return _then(_$Market(
+      null == market
+          ? _value.market
+          : market // ignore: cast_nullable_to_non_nullable
+              as MarketModel,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$Market implements Market {
-  const _$Market();
+  const _$Market(this.market);
+
+  @override
+  final MarketModel market;
 
   @override
   String toString() {
-    return 'HomeState.market()';
+    return 'HomeState.market(market: $market)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$Market);
+        (other.runtimeType == runtimeType &&
+            other is _$Market &&
+            (identical(other.market, market) || other.market == market));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, market);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$MarketCopyWith<_$Market> get copyWith =>
+      __$$MarketCopyWithImpl<_$Market>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function() loaded,
-    required TResult Function() success,
-    required TResult Function() markets,
-    required TResult Function() market,
-    required TResult Function() product,
+    required TResult Function() loading,
+    required TResult Function(List<MarketEntity> markets) markets,
+    required TResult Function(MarketModel market) market,
+    required TResult Function(MarketModel market, int index) product,
     required TResult Function() empty,
-    required TResult Function() error,
+    required TResult Function(Failure failure) error,
   }) {
-    return market();
+    return market(this.market);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function()? loaded,
-    TResult? Function()? success,
-    TResult? Function()? markets,
-    TResult? Function()? market,
-    TResult? Function()? product,
+    TResult? Function()? loading,
+    TResult? Function(List<MarketEntity> markets)? markets,
+    TResult? Function(MarketModel market)? market,
+    TResult? Function(MarketModel market, int index)? product,
     TResult? Function()? empty,
-    TResult? Function()? error,
+    TResult? Function(Failure failure)? error,
   }) {
-    return market?.call();
+    return market?.call(this.market);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function()? loaded,
-    TResult Function()? success,
-    TResult Function()? markets,
-    TResult Function()? market,
-    TResult Function()? product,
+    TResult Function()? loading,
+    TResult Function(List<MarketEntity> markets)? markets,
+    TResult Function(MarketModel market)? market,
+    TResult Function(MarketModel market, int index)? product,
     TResult Function()? empty,
-    TResult Function()? error,
+    TResult Function(Failure failure)? error,
     required TResult orElse(),
   }) {
     if (market != null) {
-      return market();
+      return market(this.market);
     }
     return orElse();
   }
@@ -739,8 +639,7 @@ class _$Market implements Market {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(Initial value) initial,
-    required TResult Function(Loaded value) loaded,
-    required TResult Function(Success value) success,
+    required TResult Function(Loading value) loading,
     required TResult Function(Markets value) markets,
     required TResult Function(Market value) market,
     required TResult Function(Product value) product,
@@ -754,8 +653,7 @@ class _$Market implements Market {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(Initial value)? initial,
-    TResult? Function(Loaded value)? loaded,
-    TResult? Function(Success value)? success,
+    TResult? Function(Loading value)? loading,
     TResult? Function(Markets value)? markets,
     TResult? Function(Market value)? market,
     TResult? Function(Product value)? product,
@@ -769,8 +667,7 @@ class _$Market implements Market {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Initial value)? initial,
-    TResult Function(Loaded value)? loaded,
-    TResult Function(Success value)? success,
+    TResult Function(Loading value)? loading,
     TResult Function(Markets value)? markets,
     TResult Function(Market value)? market,
     TResult Function(Product value)? product,
@@ -786,13 +683,20 @@ class _$Market implements Market {
 }
 
 abstract class Market implements HomeState {
-  const factory Market() = _$Market;
+  const factory Market(final MarketModel market) = _$Market;
+
+  MarketModel get market;
+  @JsonKey(ignore: true)
+  _$$MarketCopyWith<_$Market> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class _$$ProductCopyWith<$Res> {
   factory _$$ProductCopyWith(_$Product value, $Res Function(_$Product) then) =
       __$$ProductCopyWithImpl<$Res>;
+  @useResult
+  $Res call({MarketModel market, int index});
 }
 
 /// @nodoc
@@ -801,72 +705,101 @@ class __$$ProductCopyWithImpl<$Res>
     implements _$$ProductCopyWith<$Res> {
   __$$ProductCopyWithImpl(_$Product _value, $Res Function(_$Product) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? market = null,
+    Object? index = null,
+  }) {
+    return _then(_$Product(
+      null == market
+          ? _value.market
+          : market // ignore: cast_nullable_to_non_nullable
+              as MarketModel,
+      null == index
+          ? _value.index
+          : index // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$Product implements Product {
-  const _$Product();
+  const _$Product(this.market, this.index);
+
+  @override
+  final MarketModel market;
+  @override
+  final int index;
 
   @override
   String toString() {
-    return 'HomeState.product()';
+    return 'HomeState.product(market: $market, index: $index)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$Product);
+        (other.runtimeType == runtimeType &&
+            other is _$Product &&
+            (identical(other.market, market) || other.market == market) &&
+            (identical(other.index, index) || other.index == index));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, market, index);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ProductCopyWith<_$Product> get copyWith =>
+      __$$ProductCopyWithImpl<_$Product>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function() loaded,
-    required TResult Function() success,
-    required TResult Function() markets,
-    required TResult Function() market,
-    required TResult Function() product,
+    required TResult Function() loading,
+    required TResult Function(List<MarketEntity> markets) markets,
+    required TResult Function(MarketModel market) market,
+    required TResult Function(MarketModel market, int index) product,
     required TResult Function() empty,
-    required TResult Function() error,
+    required TResult Function(Failure failure) error,
   }) {
-    return product();
+    return product(this.market, index);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function()? loaded,
-    TResult? Function()? success,
-    TResult? Function()? markets,
-    TResult? Function()? market,
-    TResult? Function()? product,
+    TResult? Function()? loading,
+    TResult? Function(List<MarketEntity> markets)? markets,
+    TResult? Function(MarketModel market)? market,
+    TResult? Function(MarketModel market, int index)? product,
     TResult? Function()? empty,
-    TResult? Function()? error,
+    TResult? Function(Failure failure)? error,
   }) {
-    return product?.call();
+    return product?.call(this.market, index);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function()? loaded,
-    TResult Function()? success,
-    TResult Function()? markets,
-    TResult Function()? market,
-    TResult Function()? product,
+    TResult Function()? loading,
+    TResult Function(List<MarketEntity> markets)? markets,
+    TResult Function(MarketModel market)? market,
+    TResult Function(MarketModel market, int index)? product,
     TResult Function()? empty,
-    TResult Function()? error,
+    TResult Function(Failure failure)? error,
     required TResult orElse(),
   }) {
     if (product != null) {
-      return product();
+      return product(this.market, index);
     }
     return orElse();
   }
@@ -875,8 +808,7 @@ class _$Product implements Product {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(Initial value) initial,
-    required TResult Function(Loaded value) loaded,
-    required TResult Function(Success value) success,
+    required TResult Function(Loading value) loading,
     required TResult Function(Markets value) markets,
     required TResult Function(Market value) market,
     required TResult Function(Product value) product,
@@ -890,8 +822,7 @@ class _$Product implements Product {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(Initial value)? initial,
-    TResult? Function(Loaded value)? loaded,
-    TResult? Function(Success value)? success,
+    TResult? Function(Loading value)? loading,
     TResult? Function(Markets value)? markets,
     TResult? Function(Market value)? market,
     TResult? Function(Product value)? product,
@@ -905,8 +836,7 @@ class _$Product implements Product {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Initial value)? initial,
-    TResult Function(Loaded value)? loaded,
-    TResult Function(Success value)? success,
+    TResult Function(Loading value)? loading,
     TResult Function(Markets value)? markets,
     TResult Function(Market value)? market,
     TResult Function(Product value)? product,
@@ -922,7 +852,13 @@ class _$Product implements Product {
 }
 
 abstract class Product implements HomeState {
-  const factory Product() = _$Product;
+  const factory Product(final MarketModel market, final int index) = _$Product;
+
+  MarketModel get market;
+  int get index;
+  @JsonKey(ignore: true)
+  _$$ProductCopyWith<_$Product> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -961,13 +897,12 @@ class _$Empty implements Empty {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function() loaded,
-    required TResult Function() success,
-    required TResult Function() markets,
-    required TResult Function() market,
-    required TResult Function() product,
+    required TResult Function() loading,
+    required TResult Function(List<MarketEntity> markets) markets,
+    required TResult Function(MarketModel market) market,
+    required TResult Function(MarketModel market, int index) product,
     required TResult Function() empty,
-    required TResult Function() error,
+    required TResult Function(Failure failure) error,
   }) {
     return empty();
   }
@@ -976,13 +911,12 @@ class _$Empty implements Empty {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function()? loaded,
-    TResult? Function()? success,
-    TResult? Function()? markets,
-    TResult? Function()? market,
-    TResult? Function()? product,
+    TResult? Function()? loading,
+    TResult? Function(List<MarketEntity> markets)? markets,
+    TResult? Function(MarketModel market)? market,
+    TResult? Function(MarketModel market, int index)? product,
     TResult? Function()? empty,
-    TResult? Function()? error,
+    TResult? Function(Failure failure)? error,
   }) {
     return empty?.call();
   }
@@ -991,13 +925,12 @@ class _$Empty implements Empty {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function()? loaded,
-    TResult Function()? success,
-    TResult Function()? markets,
-    TResult Function()? market,
-    TResult Function()? product,
+    TResult Function()? loading,
+    TResult Function(List<MarketEntity> markets)? markets,
+    TResult Function(MarketModel market)? market,
+    TResult Function(MarketModel market, int index)? product,
     TResult Function()? empty,
-    TResult Function()? error,
+    TResult Function(Failure failure)? error,
     required TResult orElse(),
   }) {
     if (empty != null) {
@@ -1010,8 +943,7 @@ class _$Empty implements Empty {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(Initial value) initial,
-    required TResult Function(Loaded value) loaded,
-    required TResult Function(Success value) success,
+    required TResult Function(Loading value) loading,
     required TResult Function(Markets value) markets,
     required TResult Function(Market value) market,
     required TResult Function(Product value) product,
@@ -1025,8 +957,7 @@ class _$Empty implements Empty {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(Initial value)? initial,
-    TResult? Function(Loaded value)? loaded,
-    TResult? Function(Success value)? success,
+    TResult? Function(Loading value)? loading,
     TResult? Function(Markets value)? markets,
     TResult? Function(Market value)? market,
     TResult? Function(Product value)? product,
@@ -1040,8 +971,7 @@ class _$Empty implements Empty {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Initial value)? initial,
-    TResult Function(Loaded value)? loaded,
-    TResult Function(Success value)? success,
+    TResult Function(Loading value)? loading,
     TResult Function(Markets value)? markets,
     TResult Function(Market value)? market,
     TResult Function(Product value)? product,
@@ -1064,6 +994,8 @@ abstract class Empty implements HomeState {
 abstract class _$$ErrorCopyWith<$Res> {
   factory _$$ErrorCopyWith(_$Error value, $Res Function(_$Error) then) =
       __$$ErrorCopyWithImpl<$Res>;
+  @useResult
+  $Res call({Failure failure});
 }
 
 /// @nodoc
@@ -1071,72 +1003,93 @@ class __$$ErrorCopyWithImpl<$Res> extends _$HomeStateCopyWithImpl<$Res, _$Error>
     implements _$$ErrorCopyWith<$Res> {
   __$$ErrorCopyWithImpl(_$Error _value, $Res Function(_$Error) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? failure = null,
+  }) {
+    return _then(_$Error(
+      null == failure
+          ? _value.failure
+          : failure // ignore: cast_nullable_to_non_nullable
+              as Failure,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$Error implements Error {
-  const _$Error();
+  const _$Error(this.failure);
+
+  @override
+  final Failure failure;
 
   @override
   String toString() {
-    return 'HomeState.error()';
+    return 'HomeState.error(failure: $failure)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$Error);
+        (other.runtimeType == runtimeType &&
+            other is _$Error &&
+            (identical(other.failure, failure) || other.failure == failure));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, failure);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ErrorCopyWith<_$Error> get copyWith =>
+      __$$ErrorCopyWithImpl<_$Error>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function() loaded,
-    required TResult Function() success,
-    required TResult Function() markets,
-    required TResult Function() market,
-    required TResult Function() product,
+    required TResult Function() loading,
+    required TResult Function(List<MarketEntity> markets) markets,
+    required TResult Function(MarketModel market) market,
+    required TResult Function(MarketModel market, int index) product,
     required TResult Function() empty,
-    required TResult Function() error,
+    required TResult Function(Failure failure) error,
   }) {
-    return error();
+    return error(failure);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function()? loaded,
-    TResult? Function()? success,
-    TResult? Function()? markets,
-    TResult? Function()? market,
-    TResult? Function()? product,
+    TResult? Function()? loading,
+    TResult? Function(List<MarketEntity> markets)? markets,
+    TResult? Function(MarketModel market)? market,
+    TResult? Function(MarketModel market, int index)? product,
     TResult? Function()? empty,
-    TResult? Function()? error,
+    TResult? Function(Failure failure)? error,
   }) {
-    return error?.call();
+    return error?.call(failure);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function()? loaded,
-    TResult Function()? success,
-    TResult Function()? markets,
-    TResult Function()? market,
-    TResult Function()? product,
+    TResult Function()? loading,
+    TResult Function(List<MarketEntity> markets)? markets,
+    TResult Function(MarketModel market)? market,
+    TResult Function(MarketModel market, int index)? product,
     TResult Function()? empty,
-    TResult Function()? error,
+    TResult Function(Failure failure)? error,
     required TResult orElse(),
   }) {
     if (error != null) {
-      return error();
+      return error(failure);
     }
     return orElse();
   }
@@ -1145,8 +1098,7 @@ class _$Error implements Error {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(Initial value) initial,
-    required TResult Function(Loaded value) loaded,
-    required TResult Function(Success value) success,
+    required TResult Function(Loading value) loading,
     required TResult Function(Markets value) markets,
     required TResult Function(Market value) market,
     required TResult Function(Product value) product,
@@ -1160,8 +1112,7 @@ class _$Error implements Error {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(Initial value)? initial,
-    TResult? Function(Loaded value)? loaded,
-    TResult? Function(Success value)? success,
+    TResult? Function(Loading value)? loading,
     TResult? Function(Markets value)? markets,
     TResult? Function(Market value)? market,
     TResult? Function(Product value)? product,
@@ -1175,8 +1126,7 @@ class _$Error implements Error {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Initial value)? initial,
-    TResult Function(Loaded value)? loaded,
-    TResult Function(Success value)? success,
+    TResult Function(Loading value)? loading,
     TResult Function(Markets value)? markets,
     TResult Function(Market value)? market,
     TResult Function(Product value)? product,
@@ -1192,5 +1142,9 @@ class _$Error implements Error {
 }
 
 abstract class Error implements HomeState {
-  const factory Error() = _$Error;
+  const factory Error(final Failure failure) = _$Error;
+
+  Failure get failure;
+  @JsonKey(ignore: true)
+  _$$ErrorCopyWith<_$Error> get copyWith => throw _privateConstructorUsedError;
 }

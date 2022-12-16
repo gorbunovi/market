@@ -1,2 +1,2 @@
-export 'home_bloc.dart';
+export 'home_controller.dart';
 export 'state.dart';
