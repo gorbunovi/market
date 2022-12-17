@@ -2,18 +2,15 @@ import 'package:market/feature/data/datasources/local/hive/characteristics_hive.
 import 'package:market/feature/domain/entities/characteristic.dart';
 
 class CharacteristicModel extends CharacteristicEntity {
-  CharacteristicModel({
-    required this.id,
-    required this.weight,
+  const CharacteristicModel({
+    required id,
+    required weight,
   }) : super(
           id: id,
           weight: weight,
         );
 
-  final int id;
-  final String weight;
-
-  CharacteristicModel.fromHive(CharacteristicsHive characteristicsHiveModel, this.id, this.weight)
+  CharacteristicModel.fromHive(CharacteristicsHive characteristicsHiveModel)
       : super(
           id: characteristicsHiveModel.id,
           weight: characteristicsHiveModel.weight,

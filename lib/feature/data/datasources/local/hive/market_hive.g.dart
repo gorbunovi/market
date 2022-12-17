@@ -19,7 +19,7 @@ class MarketHiveAdapter extends TypeAdapter<MarketHive> {
     return MarketHive(
       id: fields[0] as int,
       name: fields[1] as String,
-      products: (fields[2] as List).cast<ProductEntity>(),
+      products: (fields[2] as List).cast<ProductHive>(),
     );
   }
 

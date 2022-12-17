@@ -41,12 +41,14 @@ class FirstData{
     MarketModel(
       id: 0,
       name: 'Market',
-      products: [
+      products: const [
         ProductModel(
           id: 0,
           name: 'Paroduct',
           characteristics: [
             CharacteristicModel(id: 0, weight: 'Characteristic',),
+            CharacteristicModel(id: 1, weight: 'Characteristic1',),
+            CharacteristicModel(id: 2, weight: 'Characteristic2',),
           ],
         ),
         ProductModel(
@@ -54,6 +56,8 @@ class FirstData{
           name: 'Paroduct1',
           characteristics: [
             CharacteristicModel(id: 0, weight: 'Characteristic',),
+            CharacteristicModel(id: 1, weight: 'Characteristic1',),
+            CharacteristicModel(id: 2, weight: 'Characteristic2',),
           ],
         ),
         ProductModel(
@@ -61,6 +65,8 @@ class FirstData{
           name: 'Paroduct2',
           characteristics: [
             CharacteristicModel(id: 0, weight: 'Characteristic',),
+            CharacteristicModel(id: 1, weight: 'Characteristic1',),
+            CharacteristicModel(id: 2, weight: 'Characteristic2',),
           ],
         ),
       ],
@@ -68,12 +74,14 @@ class FirstData{
     MarketModel(
       id: 1,
       name: 'Market1',
-      products: [
+      products: const [
         ProductModel(
           id: 0,
           name: 'Paroduct',
           characteristics: [
             CharacteristicModel(id: 0, weight: 'Characteristic',),
+            CharacteristicModel(id: 1, weight: 'Characteristic1',),
+            CharacteristicModel(id: 2, weight: 'Characteristic2',),
           ],
         ),
         ProductModel(
@@ -81,6 +89,8 @@ class FirstData{
           name: 'Paroduct1',
           characteristics: [
             CharacteristicModel(id: 0, weight: 'Characteristic',),
+            CharacteristicModel(id: 1, weight: 'Characteristic1',),
+            CharacteristicModel(id: 2, weight: 'Characteristic2',),
           ],
         ),
         ProductModel(
@@ -88,6 +98,8 @@ class FirstData{
           name: 'Paroduct2',
           characteristics: [
             CharacteristicModel(id: 0, weight: 'Characteristic',),
+            CharacteristicModel(id: 1, weight: 'Characteristic1',),
+            CharacteristicModel(id: 2, weight: 'Characteristic2',),
           ],
         ),
       ],
@@ -95,12 +107,14 @@ class FirstData{
     MarketModel(
       id: 2,
       name: 'Market2',
-      products: [
+      products: const [
         ProductModel(
           id: 0,
           name: 'Paroduct',
           characteristics: [
             CharacteristicModel(id: 0, weight: 'Characteristic',),
+            CharacteristicModel(id: 1, weight: 'Characteristic1',),
+            CharacteristicModel(id: 2, weight: 'Characteristic2',),
           ],
         ),
         ProductModel(
@@ -108,6 +122,8 @@ class FirstData{
           name: 'Paroduct1',
           characteristics: [
             CharacteristicModel(id: 0, weight: 'Characteristic',),
+            CharacteristicModel(id: 1, weight: 'Characteristic1',),
+            CharacteristicModel(id: 2, weight: 'Characteristic2',),
           ],
         ),
         ProductModel(
@@ -115,6 +131,8 @@ class FirstData{
           name: 'Paroduct2',
           characteristics: [
             CharacteristicModel(id: 0, weight: 'Characteristic',),
+            CharacteristicModel(id: 1, weight: 'Characteristic1',),
+            CharacteristicModel(id: 2, weight: 'Characteristic2',),
           ],
         ),
       ],

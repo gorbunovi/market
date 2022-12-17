@@ -5,7 +5,7 @@ import 'characteristics_hive.dart';
 part 'product_hive.g.dart';
 
 @HiveType(typeId: 1)
-class ProductHive {
+class ProductHive extends HiveObject{
   @HiveField(0)
   final int id;
 
@@ -13,7 +13,7 @@ class ProductHive {
   final String name;
 
   @HiveField(2)
-  final List<CharacteristicEntity> characteristics;
+  final List<CharacteristicsHive> characteristics;
 
   ProductHive({
     required this.id,

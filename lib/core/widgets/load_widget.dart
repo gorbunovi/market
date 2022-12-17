@@ -7,10 +7,11 @@ class LoadWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Load'),
+        title: const Text('Loading'),
+        centerTitle: true,
       ),
-      body: Center(
-        child: const CircularProgressIndicator(),
+      body: const Center(
+        child: CircularProgressIndicator(),
       ),
     );
   }

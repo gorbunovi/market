@@ -1,4 +1,5 @@
 import 'package:equatable/equatable.dart';
+import 'package:market/feature/data/models/product_model.dart';
 import 'package:market/feature/domain/entities/product_entity.dart';
 
 class MarketEntity extends Equatable{
@@ -6,7 +7,7 @@ class MarketEntity extends Equatable{
 
   final int id;
   final String name;
-  final List<ProductEntity> products;
+  final List<ProductModel> products;
 
   @override
   List<Object?> get props => [

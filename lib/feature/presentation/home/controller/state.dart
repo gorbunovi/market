@@ -14,11 +14,11 @@ abstract class HomeState with _$HomeState {
 
   // const factory HomeState.success() = Success;
 
-  const factory HomeState.markets(List<MarketEntity> markets) = Markets;
+  const factory HomeState.markets({required List<MarketEntity> markets, required bool isFilter}) = Markets;
 
-  const factory HomeState.market(MarketModel market) = Market;
+  const factory HomeState.market(MarketEntity market) = Market;
 
-  const factory HomeState.product(MarketModel market, int index) = Product;
+  const factory HomeState.product({required MarketEntity market, required int index}) = Product;
 
   const factory HomeState.empty() = Empty;
 

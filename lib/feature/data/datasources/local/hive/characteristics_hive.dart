@@ -3,7 +3,7 @@ import 'package:hive/hive.dart';
 part 'characteristics_hive.g.dart';
 
 @HiveType(typeId: 0)
-class CharacteristicsHive {
+class CharacteristicsHive extends HiveObject{
   @HiveField(0)
   final int id;
 

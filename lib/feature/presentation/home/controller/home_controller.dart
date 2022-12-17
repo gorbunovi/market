@@ -1,8 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:market/core/usecase/usecase.dart';
-import 'package:market/feature/data/models/characteristic_model.dart';
 import 'package:market/feature/data/models/market_model.dart';
-import 'package:market/feature/data/models/product_model.dart';
+import 'package:market/feature/domain/entities/market_entity.dart';
 import 'package:market/feature/domain/usecases/get_all_market.dart';
 import 'package:market/feature/presentation/home/controller/state.dart';
 
@@ -10,6 +9,7 @@ class HomeController extends Cubit<HomeState> {
   HomeController({required this.getAllMarkets}) : super(const Initial());
 
   final GetAllMarkets getAllMarkets;
+  late List<MarketEntity>listMarkets;
 
 
 
@@ -24,16 +24,22 @@ class HomeController extends Cubit<HomeState> {
     failureOrMarkets.fold(
           (failure) => emit(Error(failure)),
           (resault){
-        emit(Markets(resault));
+            listMarkets = resault;
+        emit(Markets(markets: resault, isFilter: false));
       },
     );
   }
 
-  void market(MarketModel market){
+  void market(MarketEntity market){
     emit(Market(market));
   }
 
+  void tapFilter(bool isFilter){
+    emit(const Loading());
+    emit(Markets(markets: listMarkets, isFilter: !isFilter));
+  }
+
   void product(MarketModel market , int productIndex){
-    emit(Product(market, productIndex));
+    emit(Product(market: market, index: productIndex));
   }
 }

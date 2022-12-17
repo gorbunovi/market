@@ -1,12 +1,10 @@
 import 'package:hive/hive.dart';
-import 'package:market/feature/data/models/product_model.dart';
-import 'package:market/feature/domain/entities/product_entity.dart';
 import 'product_hive.dart';
 
 part 'market_hive.g.dart';
 
 @HiveType(typeId: 2)
-class MarketHive {
+class MarketHive extends HiveObject{
   @HiveField(0)
   final int id;
 
@@ -14,7 +12,7 @@ class MarketHive {
   final String name;
 
   @HiveField(2)
-  final List<ProductEntity> products;
+  final List<ProductHive> products;
 
   MarketHive({
     required this.id,

@@ -19,7 +19,7 @@ class ProductHiveAdapter extends TypeAdapter<ProductHive> {
     return ProductHive(
       id: fields[0] as int,
       name: fields[1] as String,
-      characteristics: (fields[2] as List).cast<CharacteristicEntity>(),
+      characteristics: (fields[2] as List).cast<CharacteristicsHive>(),
     );
   }
 

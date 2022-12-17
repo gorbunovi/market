@@ -17,9 +17,11 @@ class MyHomePage extends StatelessWidget {
           return state.when(
               initial: () => const IndexHomeWidget(),
               loading: () => const core_widgets.LoadWidget(),
-              markets: (markets) => MarketsWidget(
+              markets: (markets, isFilter) => MarketsWidget(
+                isFilter: isFilter,
+                tapFilter: (isFilter) =>BlocProvider.of<HomeController>(context).tapFilter(isFilter),
                 markets: markets,
-                to_market: (market) => BlocProvider.of<HomeController>(context).market(market),
+                toMarket: (market) => BlocProvider.of<HomeController>(context).market(market),
               ),
               market: (market) => MarketWidget(
                 market: market,

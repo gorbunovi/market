@@ -20,9 +20,10 @@ mixin _$HomeState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<MarketEntity> markets) markets,
-    required TResult Function(MarketModel market) market,
-    required TResult Function(MarketModel market, int index) product,
+    required TResult Function(List<MarketEntity> markets, bool isFilter)
+        markets,
+    required TResult Function(MarketEntity market) market,
+    required TResult Function(MarketEntity market, int index) product,
     required TResult Function() empty,
     required TResult Function(Failure failure) error,
   }) =>
@@ -31,9 +32,9 @@ mixin _$HomeState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<MarketEntity> markets)? markets,
-    TResult? Function(MarketModel market)? market,
-    TResult? Function(MarketModel market, int index)? product,
+    TResult? Function(List<MarketEntity> markets, bool isFilter)? markets,
+    TResult? Function(MarketEntity market)? market,
+    TResult? Function(MarketEntity market, int index)? product,
     TResult? Function()? empty,
     TResult? Function(Failure failure)? error,
   }) =>
@@ -42,9 +43,9 @@ mixin _$HomeState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<MarketEntity> markets)? markets,
-    TResult Function(MarketModel market)? market,
-    TResult Function(MarketModel market, int index)? product,
+    TResult Function(List<MarketEntity> markets, bool isFilter)? markets,
+    TResult Function(MarketEntity market)? market,
+    TResult Function(MarketEntity market, int index)? product,
     TResult Function()? empty,
     TResult Function(Failure failure)? error,
     required TResult orElse(),
@@ -141,9 +142,10 @@ class _$Initial implements Initial {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<MarketEntity> markets) markets,
-    required TResult Function(MarketModel market) market,
-    required TResult Function(MarketModel market, int index) product,
+    required TResult Function(List<MarketEntity> markets, bool isFilter)
+        markets,
+    required TResult Function(MarketEntity market) market,
+    required TResult Function(MarketEntity market, int index) product,
     required TResult Function() empty,
     required TResult Function(Failure failure) error,
   }) {
@@ -155,9 +157,9 @@ class _$Initial implements Initial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<MarketEntity> markets)? markets,
-    TResult? Function(MarketModel market)? market,
-    TResult? Function(MarketModel market, int index)? product,
+    TResult? Function(List<MarketEntity> markets, bool isFilter)? markets,
+    TResult? Function(MarketEntity market)? market,
+    TResult? Function(MarketEntity market, int index)? product,
     TResult? Function()? empty,
     TResult? Function(Failure failure)? error,
   }) {
@@ -169,9 +171,9 @@ class _$Initial implements Initial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<MarketEntity> markets)? markets,
-    TResult Function(MarketModel market)? market,
-    TResult Function(MarketModel market, int index)? product,
+    TResult Function(List<MarketEntity> markets, bool isFilter)? markets,
+    TResult Function(MarketEntity market)? market,
+    TResult Function(MarketEntity market, int index)? product,
     TResult Function()? empty,
     TResult Function(Failure failure)? error,
     required TResult orElse(),
@@ -271,9 +273,10 @@ class _$Loading implements Loading {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<MarketEntity> markets) markets,
-    required TResult Function(MarketModel market) market,
-    required TResult Function(MarketModel market, int index) product,
+    required TResult Function(List<MarketEntity> markets, bool isFilter)
+        markets,
+    required TResult Function(MarketEntity market) market,
+    required TResult Function(MarketEntity market, int index) product,
     required TResult Function() empty,
     required TResult Function(Failure failure) error,
   }) {
@@ -285,9 +288,9 @@ class _$Loading implements Loading {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<MarketEntity> markets)? markets,
-    TResult? Function(MarketModel market)? market,
-    TResult? Function(MarketModel market, int index)? product,
+    TResult? Function(List<MarketEntity> markets, bool isFilter)? markets,
+    TResult? Function(MarketEntity market)? market,
+    TResult? Function(MarketEntity market, int index)? product,
     TResult? Function()? empty,
     TResult? Function(Failure failure)? error,
   }) {
@@ -299,9 +302,9 @@ class _$Loading implements Loading {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<MarketEntity> markets)? markets,
-    TResult Function(MarketModel market)? market,
-    TResult Function(MarketModel market, int index)? product,
+    TResult Function(List<MarketEntity> markets, bool isFilter)? markets,
+    TResult Function(MarketEntity market)? market,
+    TResult Function(MarketEntity market, int index)? product,
     TResult Function()? empty,
     TResult Function(Failure failure)? error,
     required TResult orElse(),
@@ -368,7 +371,7 @@ abstract class _$$MarketsCopyWith<$Res> {
   factory _$$MarketsCopyWith(_$Markets value, $Res Function(_$Markets) then) =
       __$$MarketsCopyWithImpl<$Res>;
   @useResult
-  $Res call({List<MarketEntity> markets});
+  $Res call({List<MarketEntity> markets, bool isFilter});
 }
 
 /// @nodoc
@@ -382,12 +385,17 @@ class __$$MarketsCopyWithImpl<$Res>
   @override
   $Res call({
     Object? markets = null,
+    Object? isFilter = null,
   }) {
     return _then(_$Markets(
-      null == markets
+      markets: null == markets
           ? _value._markets
           : markets // ignore: cast_nullable_to_non_nullable
               as List<MarketEntity>,
+      isFilter: null == isFilter
+          ? _value.isFilter
+          : isFilter // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -395,7 +403,9 @@ class __$$MarketsCopyWithImpl<$Res>
 /// @nodoc
 
 class _$Markets implements Markets {
-  const _$Markets(final List<MarketEntity> markets) : _markets = markets;
+  const _$Markets(
+      {required final List<MarketEntity> markets, required this.isFilter})
+      : _markets = markets;
 
   final List<MarketEntity> _markets;
   @override
@@ -406,8 +416,11 @@ class _$Markets implements Markets {
   }
 
   @override
+  final bool isFilter;
+
+  @override
   String toString() {
-    return 'HomeState.markets(markets: $markets)';
+    return 'HomeState.markets(markets: $markets, isFilter: $isFilter)';
   }
 
   @override
@@ -415,12 +428,14 @@ class _$Markets implements Markets {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$Markets &&
-            const DeepCollectionEquality().equals(other._markets, _markets));
+            const DeepCollectionEquality().equals(other._markets, _markets) &&
+            (identical(other.isFilter, isFilter) ||
+                other.isFilter == isFilter));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(_markets));
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(_markets), isFilter);
 
   @JsonKey(ignore: true)
   @override
@@ -433,13 +448,14 @@ class _$Markets implements Markets {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<MarketEntity> markets) markets,
-    required TResult Function(MarketModel market) market,
-    required TResult Function(MarketModel market, int index) product,
+    required TResult Function(List<MarketEntity> markets, bool isFilter)
+        markets,
+    required TResult Function(MarketEntity market) market,
+    required TResult Function(MarketEntity market, int index) product,
     required TResult Function() empty,
     required TResult Function(Failure failure) error,
   }) {
-    return markets(this.markets);
+    return markets(this.markets, isFilter);
   }
 
   @override
@@ -447,13 +463,13 @@ class _$Markets implements Markets {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<MarketEntity> markets)? markets,
-    TResult? Function(MarketModel market)? market,
-    TResult? Function(MarketModel market, int index)? product,
+    TResult? Function(List<MarketEntity> markets, bool isFilter)? markets,
+    TResult? Function(MarketEntity market)? market,
+    TResult? Function(MarketEntity market, int index)? product,
     TResult? Function()? empty,
     TResult? Function(Failure failure)? error,
   }) {
-    return markets?.call(this.markets);
+    return markets?.call(this.markets, isFilter);
   }
 
   @override
@@ -461,15 +477,15 @@ class _$Markets implements Markets {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<MarketEntity> markets)? markets,
-    TResult Function(MarketModel market)? market,
-    TResult Function(MarketModel market, int index)? product,
+    TResult Function(List<MarketEntity> markets, bool isFilter)? markets,
+    TResult Function(MarketEntity market)? market,
+    TResult Function(MarketEntity market, int index)? product,
     TResult Function()? empty,
     TResult Function(Failure failure)? error,
     required TResult orElse(),
   }) {
     if (markets != null) {
-      return markets(this.markets);
+      return markets(this.markets, isFilter);
     }
     return orElse();
   }
@@ -522,9 +538,12 @@ class _$Markets implements Markets {
 }
 
 abstract class Markets implements HomeState {
-  const factory Markets(final List<MarketEntity> markets) = _$Markets;
+  const factory Markets(
+      {required final List<MarketEntity> markets,
+      required final bool isFilter}) = _$Markets;
 
   List<MarketEntity> get markets;
+  bool get isFilter;
   @JsonKey(ignore: true)
   _$$MarketsCopyWith<_$Markets> get copyWith =>
       throw _privateConstructorUsedError;
@@ -535,7 +554,7 @@ abstract class _$$MarketCopyWith<$Res> {
   factory _$$MarketCopyWith(_$Market value, $Res Function(_$Market) then) =
       __$$MarketCopyWithImpl<$Res>;
   @useResult
-  $Res call({MarketModel market});
+  $Res call({MarketEntity market});
 }
 
 /// @nodoc
@@ -554,7 +573,7 @@ class __$$MarketCopyWithImpl<$Res>
       null == market
           ? _value.market
           : market // ignore: cast_nullable_to_non_nullable
-              as MarketModel,
+              as MarketEntity,
     ));
   }
 }
@@ -565,7 +584,7 @@ class _$Market implements Market {
   const _$Market(this.market);
 
   @override
-  final MarketModel market;
+  final MarketEntity market;
 
   @override
   String toString() {
@@ -594,9 +613,10 @@ class _$Market implements Market {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<MarketEntity> markets) markets,
-    required TResult Function(MarketModel market) market,
-    required TResult Function(MarketModel market, int index) product,
+    required TResult Function(List<MarketEntity> markets, bool isFilter)
+        markets,
+    required TResult Function(MarketEntity market) market,
+    required TResult Function(MarketEntity market, int index) product,
     required TResult Function() empty,
     required TResult Function(Failure failure) error,
   }) {
@@ -608,9 +628,9 @@ class _$Market implements Market {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<MarketEntity> markets)? markets,
-    TResult? Function(MarketModel market)? market,
-    TResult? Function(MarketModel market, int index)? product,
+    TResult? Function(List<MarketEntity> markets, bool isFilter)? markets,
+    TResult? Function(MarketEntity market)? market,
+    TResult? Function(MarketEntity market, int index)? product,
     TResult? Function()? empty,
     TResult? Function(Failure failure)? error,
   }) {
@@ -622,9 +642,9 @@ class _$Market implements Market {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<MarketEntity> markets)? markets,
-    TResult Function(MarketModel market)? market,
-    TResult Function(MarketModel market, int index)? product,
+    TResult Function(List<MarketEntity> markets, bool isFilter)? markets,
+    TResult Function(MarketEntity market)? market,
+    TResult Function(MarketEntity market, int index)? product,
     TResult Function()? empty,
     TResult Function(Failure failure)? error,
     required TResult orElse(),
@@ -683,9 +703,9 @@ class _$Market implements Market {
 }
 
 abstract class Market implements HomeState {
-  const factory Market(final MarketModel market) = _$Market;
+  const factory Market(final MarketEntity market) = _$Market;
 
-  MarketModel get market;
+  MarketEntity get market;
   @JsonKey(ignore: true)
   _$$MarketCopyWith<_$Market> get copyWith =>
       throw _privateConstructorUsedError;
@@ -696,7 +716,7 @@ abstract class _$$ProductCopyWith<$Res> {
   factory _$$ProductCopyWith(_$Product value, $Res Function(_$Product) then) =
       __$$ProductCopyWithImpl<$Res>;
   @useResult
-  $Res call({MarketModel market, int index});
+  $Res call({MarketEntity market, int index});
 }
 
 /// @nodoc
@@ -713,11 +733,11 @@ class __$$ProductCopyWithImpl<$Res>
     Object? index = null,
   }) {
     return _then(_$Product(
-      null == market
+      market: null == market
           ? _value.market
           : market // ignore: cast_nullable_to_non_nullable
-              as MarketModel,
-      null == index
+              as MarketEntity,
+      index: null == index
           ? _value.index
           : index // ignore: cast_nullable_to_non_nullable
               as int,
@@ -728,10 +748,10 @@ class __$$ProductCopyWithImpl<$Res>
 /// @nodoc
 
 class _$Product implements Product {
-  const _$Product(this.market, this.index);
+  const _$Product({required this.market, required this.index});
 
   @override
-  final MarketModel market;
+  final MarketEntity market;
   @override
   final int index;
 
@@ -763,9 +783,10 @@ class _$Product implements Product {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<MarketEntity> markets) markets,
-    required TResult Function(MarketModel market) market,
-    required TResult Function(MarketModel market, int index) product,
+    required TResult Function(List<MarketEntity> markets, bool isFilter)
+        markets,
+    required TResult Function(MarketEntity market) market,
+    required TResult Function(MarketEntity market, int index) product,
     required TResult Function() empty,
     required TResult Function(Failure failure) error,
   }) {
@@ -777,9 +798,9 @@ class _$Product implements Product {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<MarketEntity> markets)? markets,
-    TResult? Function(MarketModel market)? market,
-    TResult? Function(MarketModel market, int index)? product,
+    TResult? Function(List<MarketEntity> markets, bool isFilter)? markets,
+    TResult? Function(MarketEntity market)? market,
+    TResult? Function(MarketEntity market, int index)? product,
     TResult? Function()? empty,
     TResult? Function(Failure failure)? error,
   }) {
@@ -791,9 +812,9 @@ class _$Product implements Product {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<MarketEntity> markets)? markets,
-    TResult Function(MarketModel market)? market,
-    TResult Function(MarketModel market, int index)? product,
+    TResult Function(List<MarketEntity> markets, bool isFilter)? markets,
+    TResult Function(MarketEntity market)? market,
+    TResult Function(MarketEntity market, int index)? product,
     TResult Function()? empty,
     TResult Function(Failure failure)? error,
     required TResult orElse(),
@@ -852,9 +873,11 @@ class _$Product implements Product {
 }
 
 abstract class Product implements HomeState {
-  const factory Product(final MarketModel market, final int index) = _$Product;
+  const factory Product(
+      {required final MarketEntity market,
+      required final int index}) = _$Product;
 
-  MarketModel get market;
+  MarketEntity get market;
   int get index;
   @JsonKey(ignore: true)
   _$$ProductCopyWith<_$Product> get copyWith =>
@@ -898,9 +921,10 @@ class _$Empty implements Empty {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<MarketEntity> markets) markets,
-    required TResult Function(MarketModel market) market,
-    required TResult Function(MarketModel market, int index) product,
+    required TResult Function(List<MarketEntity> markets, bool isFilter)
+        markets,
+    required TResult Function(MarketEntity market) market,
+    required TResult Function(MarketEntity market, int index) product,
     required TResult Function() empty,
     required TResult Function(Failure failure) error,
   }) {
@@ -912,9 +936,9 @@ class _$Empty implements Empty {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<MarketEntity> markets)? markets,
-    TResult? Function(MarketModel market)? market,
-    TResult? Function(MarketModel market, int index)? product,
+    TResult? Function(List<MarketEntity> markets, bool isFilter)? markets,
+    TResult? Function(MarketEntity market)? market,
+    TResult? Function(MarketEntity market, int index)? product,
     TResult? Function()? empty,
     TResult? Function(Failure failure)? error,
   }) {
@@ -926,9 +950,9 @@ class _$Empty implements Empty {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<MarketEntity> markets)? markets,
-    TResult Function(MarketModel market)? market,
-    TResult Function(MarketModel market, int index)? product,
+    TResult Function(List<MarketEntity> markets, bool isFilter)? markets,
+    TResult Function(MarketEntity market)? market,
+    TResult Function(MarketEntity market, int index)? product,
     TResult Function()? empty,
     TResult Function(Failure failure)? error,
     required TResult orElse(),
@@ -1053,9 +1077,10 @@ class _$Error implements Error {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<MarketEntity> markets) markets,
-    required TResult Function(MarketModel market) market,
-    required TResult Function(MarketModel market, int index) product,
+    required TResult Function(List<MarketEntity> markets, bool isFilter)
+        markets,
+    required TResult Function(MarketEntity market) market,
+    required TResult Function(MarketEntity market, int index) product,
     required TResult Function() empty,
     required TResult Function(Failure failure) error,
   }) {
@@ -1067,9 +1092,9 @@ class _$Error implements Error {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<MarketEntity> markets)? markets,
-    TResult? Function(MarketModel market)? market,
-    TResult? Function(MarketModel market, int index)? product,
+    TResult? Function(List<MarketEntity> markets, bool isFilter)? markets,
+    TResult? Function(MarketEntity market)? market,
+    TResult? Function(MarketEntity market, int index)? product,
     TResult? Function()? empty,
     TResult? Function(Failure failure)? error,
   }) {
@@ -1081,9 +1106,9 @@ class _$Error implements Error {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<MarketEntity> markets)? markets,
-    TResult Function(MarketModel market)? market,
-    TResult Function(MarketModel market, int index)? product,
+    TResult Function(List<MarketEntity> markets, bool isFilter)? markets,
+    TResult Function(MarketEntity market)? market,
+    TResult Function(MarketEntity market, int index)? product,
     TResult Function()? empty,
     TResult Function(Failure failure)? error,
     required TResult orElse(),

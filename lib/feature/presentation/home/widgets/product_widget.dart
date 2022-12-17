@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:market/feature/data/models/market_model.dart';
-import 'package:market/feature/data/models/product_model.dart';
+import 'package:market/feature/domain/entities/market_entity.dart';
 
 class ProductWidget extends StatelessWidget {
   const ProductWidget({
@@ -11,7 +10,7 @@ class ProductWidget extends StatelessWidget {
   }) : super(key: key);
 
   final int productIndex;
-  final MarketModel market;
+  final MarketEntity market;
   final Function back;
 
   @override
@@ -25,13 +24,15 @@ class ProductWidget extends StatelessWidget {
           onPressed: () => back(market),
         ),
       ),
-      body: ListView.builder(
-          itemCount: market.products[productIndex].characteristics.length,
-          itemBuilder: (context, index){
-            return ListTile(
-              title: Text(market.products[productIndex].characteristics[index].weight),
-            );
-          }),
+      body: SafeArea(
+        child: ListView.builder(
+            itemCount: market.products[productIndex].characteristics.length,
+            itemBuilder: (context, index){
+              return ListTile(
+                title: Text(market.products[productIndex].characteristics[index].weight),
+              );
+            }),
+      ),
     );
   }
 }
