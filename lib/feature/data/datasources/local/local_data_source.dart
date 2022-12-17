@@ -11,22 +11,25 @@ abstract class MarketLocalDataSorce{
 
 
 class MarketLocalDataSorceImpl implements MarketLocalDataSorce{
+  MarketLocalDataSorceImpl({required this.hive});
+
+  final HiveInterface hive;
 
   @override
   Future<List<MarketModel>> getAllMarketsLocal() async{
     List<MarketModel> marketsList = [];
 
-    if(!Hive.isAdapterRegistered(0)){
-      Hive.registerAdapter(CharacteristicsHiveAdapter());
+    if(!hive.isAdapterRegistered(0)){
+      hive.registerAdapter(CharacteristicsHiveAdapter());
     }
-    if(!Hive.isAdapterRegistered(1)){
-      Hive.registerAdapter(ProductHiveAdapter());
+    if(!hive.isAdapterRegistered(1)){
+      hive.registerAdapter(ProductHiveAdapter());
     }
-    if(!Hive.isAdapterRegistered(2)) {
-      Hive.registerAdapter(MarketHiveAdapter());
+    if(!hive.isAdapterRegistered(2)) {
+      hive.registerAdapter(MarketHiveAdapter());
     }
 
-    var marketsBox = await Hive.openBox<MarketHive>('markets');
+    var marketsBox = await hive.openBox<MarketHive>('markets');
 
     if(marketsBox.isEmpty){
       var listmarkets = await FirstData().getALLMarkets();
