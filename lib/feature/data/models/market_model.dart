@@ -1,5 +1,4 @@
 import 'package:market/feature/data/datasources/local/hive/market_hive.dart';
-import 'package:market/feature/data/datasources/local/hive/product_hive.dart';
 import 'package:market/feature/data/models/product_model.dart';
 import 'package:market/feature/domain/entities/market_entity.dart';
 

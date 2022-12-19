@@ -37,7 +37,7 @@ class FirstData{
   // ];
 
 
-  List<MarketModel> marketsList = [
+  final List<MarketModel> _marketsList = [
     MarketModel(
       id: 0,
       name: 'Market',
@@ -140,6 +140,6 @@ class FirstData{
   ];
 
   Future<List<MarketModel>> getALLMarkets() async{
-    return marketsList;
+    return _marketsList;
   }
 }
