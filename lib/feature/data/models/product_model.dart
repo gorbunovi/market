@@ -1,7 +1,12 @@
+import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:market/feature/data/datasources/local/hive/product_hive.dart';
 import 'package:market/feature/data/models/characteristic_model.dart';
 import 'package:market/feature/domain/entities/product_entity.dart';
 
+
+part 'product_model.g.dart';
+
+@JsonSerializable()
 class ProductModel extends ProductEntity {
   const ProductModel({
     required int id,
@@ -12,9 +17,11 @@ class ProductModel extends ProductEntity {
           name: name,
           characteristics: characteristics,
         );
-  // final int id;
-  // final String name;
-  // final List<CharacteristicModel> characteristics;
+
+  factory ProductModel.fromJson(Map<String, dynamic> json) =>
+      _$ProductModelFromJson(json);
+
+  Map<String, dynamic> toJson() => _$ProductModelToJson(this);
 
   ProductModel.fromHive(ProductHive productHiveModel)
       : super(
