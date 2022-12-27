@@ -9,7 +9,7 @@ class HomeController extends Cubit<HomeState> {
   HomeController({required this.getAllMarkets}) : super(const Initial());
 
   final GetAllMarkets getAllMarkets;
-  late List<MarketEntity>listMarkets;
+  late List<MarketEntity>_listMarkets;
 
 
 
@@ -18,13 +18,12 @@ class HomeController extends Cubit<HomeState> {
     emit(Loading());
     if(currentState is Loading) return;
 
-
     final failureOrMarkets = await getAllMarkets(NoParams());
 
     failureOrMarkets.fold(
           (failure) => emit(Error(failure)),
           (resault){
-            listMarkets = resault;
+            _listMarkets = resault;
         emit(Markets(markets: resault, isFilter: false));
       },
     );
@@ -36,7 +35,7 @@ class HomeController extends Cubit<HomeState> {
 
   void tapFilter(bool isFilter){
     emit(const Loading());
-    emit(Markets(markets: listMarkets, isFilter: !isFilter));
+    emit(Markets(markets: _listMarkets, isFilter: !isFilter));
   }
 
   void product(MarketModel market , int productIndex){

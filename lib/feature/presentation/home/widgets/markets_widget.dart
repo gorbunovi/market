@@ -17,10 +17,12 @@ class MarketsWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // print('name --- ${markets.map((e) => e.name)}');
     return Scaffold(
       appBar: AppBar(
-        toolbarHeight:
-            isFilter ? MediaQuery.of(context).size.height * 0.23 : 55,
+        toolbarHeight: isFilter
+            ? MediaQuery.of(context).size.height * 0.18
+            : MediaQuery.of(context).size.height * 0.07,
         flexibleSpace: Column(
           children: [
             const SizedBox(
@@ -66,16 +68,16 @@ class MarketsWidget extends StatelessWidget {
                             hintText: 'Введите продукт',
                             suffixIcon: IconButton(
                               onPressed: () => print('suffixIcon'),
-                              icon: const Icon(Icons.search),
+                              icon: const Icon(Icons.search, color: Colors.black,),
                             ),
                             fillColor: Colors.white,
                             filled: true,
-                            focusedBorder: const OutlineInputBorder(
+                            focusedBorder: OutlineInputBorder(
                               borderSide: BorderSide(width: 3),
                               borderRadius:
                                   BorderRadius.all(Radius.circular(20)),
                             ),
-                            enabledBorder: const OutlineInputBorder(
+                            enabledBorder: OutlineInputBorder(
                               borderSide: BorderSide(width: 3),
                               borderRadius:
                                   BorderRadius.all(Radius.circular(20)),
@@ -84,27 +86,6 @@ class MarketsWidget extends StatelessWidget {
                         ),
                         const SizedBox(
                           height: 5,
-                        ),
-                        TextFormField(
-                          decoration: InputDecoration(
-                            hintText: 'Введите характеристику продукта',
-                            suffixIcon: IconButton(
-                              onPressed: () => print('suffixIcon'),
-                              icon: const Icon(Icons.search),
-                            ),
-                            fillColor: Colors.white,
-                            filled: true,
-                            focusedBorder: const OutlineInputBorder(
-                              borderSide: BorderSide(width: 3),
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(20)),
-                            ),
-                            enabledBorder: const OutlineInputBorder(
-                              borderSide: BorderSide(width: 3),
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(20)),
-                            ),
-                          ),
                         ),
                       ],
                     ),

@@ -22,7 +22,11 @@ class MarketRepositoryImpl implements MarketRepository{
 
   @override
   Future<Either<Failure, List<MarketEntity>>> searchProduct() async {
-    // TODO: implement searchProduct
-    throw UnimplementedError();
+    try {
+      final markets = await marketLocalDataSorce.getAllMarketsLocal();
+      return Right(markets);
+    } on CacheException {
+      return Left(CacheFailure(''));
+    }
   }
 }

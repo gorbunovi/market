@@ -21,7 +21,7 @@ Future<void> init() async {
   );
 
   sl.registerLazySingleton<MarketLocalDataSorce>(
-          () => MarketLocalDataSorceImpl(hive: sl()));
+          () => MarketLocalDataSorceImpl());
   //Core
   //External
   sl.registerLazySingleton(() =>  Hive);

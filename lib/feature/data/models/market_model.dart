@@ -25,7 +25,7 @@ class MarketModel extends MarketEntity {
       : super(
           id: marketHiveModel.id,
           name: marketHiveModel.name,
-          products: marketHiveModel.products.map((products) => ProductModel.fromHive(products)).toList(),
+          products: marketHiveModel.products.map((product) => ProductModel.fromHive(product)).toList(),
         );
 
 
